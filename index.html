@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HYDSKRPR: Gumroad Explorer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white p-4 font-mono">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-extrabold text-electric-blue animate-pulse mb-4">HYDSKRPR</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+      <div class="grid grid-cols-2 gap-2">
+        <button id="scrapeBtn" class="bubble-btn">🧪 Scrape</button>
+        <button id="exportBtn" class="bubble-btn">📦 Export JSON</button>
+        <button id="csvBtn" class="bubble-btn">📑 Export CSV</button>
+        <button id="shareBtn" class="bubble-btn">🔗 Share</button>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <button id="demoToggle" class="bubble-btn">Run Demo</button>
+        <button id="analyticsToggle" class="bubble-btn">📊 Analytics</button>
+        <select id="sortSelect" class="bubble-btn col-span-2">
+          <option value="default">Sort: Default</option>
+          <option value="priceLow">Price: Low to High</option>
+          <option value="priceHigh">Price: High to Low</option>
+          <option value="soldHigh">Most Sold</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+      <input id="search" type="text" placeholder="Search keyword..." class="input" />
+      <input id="minPrice" type="number" placeholder="Min price" class="input" />
+      <input id="maxPrice" type="number" placeholder="Max price" class="input" />
+    </div>
+    <div class="grid grid-cols-3 gap-2 mb-6" id="tagFilters"></div>
+    <div id="productList" class="grid gap-4"></div>
+    <div id="analyticsPanel" class="mt-10 text-sm text-gray-400 max-h-0 collapsible-content">
+      <canvas id="tagsChart" class="mb-6"></canvas>
+      <canvas id="priceChart" class="mb-6"></canvas>
+      <canvas id="salesChart" class="mb-6"></canvas>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
